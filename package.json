@@ -1,0 +1,23 @@
+{
+  "name": "modesto-loaner-contract",
+  "scripts": {
+    "compile": "clear; npx hardhat compile",
+    "test": "clear; npx hardhat test",
+    "serve": "clear; npx hardhat node",
+    "deploy": "clear; npx hardhat run scripts/deploy.js --network ropsten",
+    "verify": "clear; npx hardhat verify --network ropsten --contract contracts/Modesto.sol:ModestoToken 0x8B5280bFfEBf54F6f57d347B264703b65F11013A 'Um token modesto' 'MODT'"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@openzeppelin/test-helpers": "^0.5.11",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.3.1",
+    "hardhat": "^2.4.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.1.0"
+  }
+}
