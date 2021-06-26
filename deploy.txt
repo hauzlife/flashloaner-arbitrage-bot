@@ -1,0 +1,7 @@
+Contract deployment: MoneyPrinter
+  Contract address:    0x5fbdb2315678afecb367f032d93f642f64180aa3
+  Transaction:         0x0f9babc20142bf39d105a263a245a136660c6513a351de8b0f7f3d30b2f08bc1
+  From:                0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+  Value:               0 ETH
+  Gas used:            2060726 of 2060726
+  Block #1:            0x4344f0ec629ff0561fbdee1361ec78c99ab417920c8eca1d4df573ce60b2aa58

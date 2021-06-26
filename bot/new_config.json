@@ -1,0 +1,68 @@
+{
+    "start": "weth",
+    "maxHops": 6,
+    "minProfit": 0.03,
+    "pairs": "random",
+    "pair_num": 1000,
+    "network": "ropsten",
+    "https": [
+        "https://eth-mainnet.alchemyapi.io/v2/PFBw9dh5TbQ2L6d-wqaydWTuXZtlfGAx"
+    ],
+    "local": {
+        "http": "http://127.0.0.1:8545",
+        "wss": "ws://127.0.0.1:8546"
+    },
+    "mainnet": {
+        "http": "https://mainnet.infura.io/v3/PFBw9dh5TbQ2L6d-wqaydWTuXZtlfGAx",
+        "wss": "wss://mainnet.infura.io/v3/PFBw9dh5TbQ2L6d-wqaydWTuXZtlfGAx"
+    },
+    "ropsten": {
+        "http": "https://ropsten.infura.io/v3/PFBw9dh5TbQ2L6d-wqaydWTuXZtlfGAx",
+        "wss": "wss://ropsten.infura.io/ws/v3/PFBw9dh5TbQ2L6d-wqaydWTuXZtlfGAx"
+    },
+    "kovan": {
+        "http": "https://kovan.infura.io/v3/PFBw9dh5TbQ2L6d-wqaydWTuXZtlfGAx",
+        "wss": "wss://kovan.infura.io/ws/v3/PFBw9dh5TbQ2L6d-wqaydWTuXZtlfGAx"
+    },
+    "gasnow_tx": "https://api.taichi.network:10001/rpc/public",
+    "gasnow": "https://gasnow.sparkpool.com/api/v3/gas/price",
+    "address": "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
+    "privkey": "df57089febbacf7ba0bc227dafbffa9fc08a93fdc68e1e42411a14efcf23656e",
+    "printer_sushi": "0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac",
+    "printer": {
+        "mainnet": "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F",
+        "local": "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F",
+        "ropsten": "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F",
+        "kovan": "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F"
+    },
+    "weth": {
+        "mainnet": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "local": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "ropsten": "0xc778417E063141139Fce010982780140Aa0cD5Ab",
+        "kovan": "0xd0A1E359811322d97991E03f863a0C30C2cF029C"
+    },
+    "usdt": {
+        "mainnet": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "local": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "ropsten": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "kovan": "0xdac17f958d2ee523a2206206994597c13d831ec7"
+    },
+    "usdc": {
+        "mainnet": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "local": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "ropsten": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+        "kovan": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+    },
+    "dai": {
+        "mainnet": "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "local": "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "ropsten": "0x6b175474e89094c44da98b954eedeac495271d0f",
+        "kovan": "0x6b175474e89094c44da98b954eedeac495271d0f"
+    },
+    "ycrv": {
+        "mainnet": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8",
+        "local": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8",
+        "ropsten": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8",
+        "kovan": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8"
+    }
+}

@@ -4,8 +4,8 @@
     "compile": "clear; npx hardhat compile",
     "test": "clear; npx hardhat test",
     "serve": "clear; npx hardhat node",
-    "deploy": "clear; npx hardhat run scripts/deploy.js --network ropsten",
-    "verify": "clear; npx hardhat verify --network ropsten --contract contracts/Modesto.sol:ModestoToken 0x8B5280bFfEBf54F6f57d347B264703b65F11013A 'Um token modesto' 'MODT'"
+    "deploy": "clear; npx hardhat run scripts/deploy.js --network local",
+    "verify": "clear; npx hardhat verify --network local --contract contracts/MoneyPrinter.sol:MoneyPrinter 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512 'Um token modesto' 'MODT'"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -18,6 +18,15 @@
     "hardhat": "^2.4.1"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.1.0"
+    "@ethersproject/contracts": "^5.0.2",
+    "@ethersproject/providers": "^5.0.5",
+    "@ethersproject/solidity": "^5.0.2",
+    "@studydefi/money-legos": "^2.3.7",
+    "@truffle/artifactor": "^4.0.74",
+    "@truffle/hdwallet-provider": "^1.0.42",
+    "@uniswap/sdk": "^2.0.6",
+    "dotenv": "^8.2.0",
+    "web3": "^1.2.11",
+    "@openzeppelin/contracts": "2.5.0"
   }
 }

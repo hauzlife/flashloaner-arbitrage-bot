@@ -14,8 +14,8 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const FlashLoaner = await hre.ethers.getContractFactory("FlashLoaner");
-  const flashLoaner = await FlashLoaner.deploy('0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f', '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', '0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F');
+  const MoneyPrinter = await hre.ethers.getContractFactory("MoneyPrinter");
+  const flashLoaner = await MoneyPrinter.deploy();
 
   await flashLoaner.deployed();
 
