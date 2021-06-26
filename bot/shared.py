@@ -298,9 +298,11 @@ def getAllPairs(pair_file, problem_file, token_file):
     pairs = json.load(open(pair_file))
     tokens = json.load(open(token_file))
     start = 0
+    print(len(pairs))
+    # Troque o range pelo tamanho mas era o NUM
     if len(pairs) > 0:
         start = pairs[-1]["index"] + 1
-    for i in range(start, num):
+    for i in range(len(pairs)):
         addr = uni.get_pair_by_index(i)
         try:
             token0 = uni.get_token_0(addr)
@@ -320,7 +322,7 @@ def getAllPairs(pair_file, problem_file, token_file):
                 erc20 = w3.eth.contract(address=token1, abi=erc20abi)
                 symbol1 = erc20.functions.symbol().call()
                 decimal1 = erc20.functions.decimals().call()
-            reserves = uni.get_reserves(addr)
+            reserves = uni.get_reserves(token0, token1)
         except Exception as e:
             print(e)
             problems.append(addr)

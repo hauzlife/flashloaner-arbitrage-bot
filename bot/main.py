@@ -4,9 +4,9 @@ import time
 
 import requests
 
-from common import *
 from dfs import *
 from events import *
+from shared import *
 from thread import *
 
 all_pairs = json.load(open("files/pairs.json"))
