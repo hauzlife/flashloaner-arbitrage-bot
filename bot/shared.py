@@ -115,10 +115,10 @@ def toDict(pairs):
 
 def selectPairs(all_pairs):
     if config["pairs"] == "random":
+        pairs = json.load(open("files/pairs.json"))
         pairs = randSelect(all_pairs, config["pair_num"])
     elif config["pairs"] == "main_pairs":
         pairs = json.load(open("files/main_pairs.json"))
-    #pairs = json.load(open("files/pairs.json"))
     pairs = removeBlackList(pairs)
     # pairs = removeLowLiq(pairs)
     pairsDict = toDict(pairs)
