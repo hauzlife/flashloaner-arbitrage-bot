@@ -147,8 +147,8 @@ def testFindArb():
     Eb = None
     trade = findArb(pairs, tokenIn, tokenOut, maxHops, currentPairs, path, bestTrade)
     print(trade)
-    amountOut = calcAmountOut(tokenIn, trade["optimalAmount"], trade["route"])
-    print("amountOutByRoute:", amountOut, "profit:", amountOut - trade["optimalAmount"])
+    # amountOut = calcAmountOut(tokenIn, trade["optimalAmount"], trade["route"])
+    # print("amountOutByRoute:", amountOut, "profit:", amountOut - trade["optimalAmount"])
 
 
 if __name__ == "__main__":
