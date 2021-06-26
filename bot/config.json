@@ -3,7 +3,7 @@
   "maxHops": 6,
   "minProfit": 0.01,
   "pairs": "random",
-  "pair_num": 1000,
+  "pair_num": 99,
   "network": "mainnet",
   "https": [
     "https://mainnet.infura.io/v3/23a7199de60b4342b67dd14fbde3ffb4"

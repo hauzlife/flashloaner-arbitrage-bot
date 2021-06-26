@@ -65,7 +65,7 @@ startToken = basicTokens[config["start"]]
 minProfit = config["minProfit"]
 
 
-def randSelect(allp, num=200):
+def randSelect(allp, num=33):
     maxNum = len(allp)
     start = random.randint(0, maxNum - num)
     return allp[start : start + num]
@@ -118,6 +118,7 @@ def selectPairs(all_pairs):
         pairs = randSelect(all_pairs, config["pair_num"])
     elif config["pairs"] == "main_pairs":
         pairs = json.load(open("files/main_pairs.json"))
+    #pairs = json.load(open("files/pairs.json"))
     pairs = removeBlackList(pairs)
     # pairs = removeLowLiq(pairs)
     pairsDict = toDict(pairs)
@@ -132,7 +133,7 @@ def gasnow():
 
 def getBalance(tokenAddress, address):
     c = w3.eth.contract(address=tokenAddress, abi=erc20abi)
-    return c.functions.balanceOf(address).call()
+    return c.functions.balanceOf(Web3.toChecksumAddress(address)).call()
 
 
 def approve(tokenAddr, contractAddr, myAddr, amount, gasPrice):
@@ -345,7 +346,7 @@ def getAllPairs(pair_file, problem_file, token_file):
     if len(pairs) > 0:
         start = 0
     for i in range(0, 100):
-    #for i in range(0, num):
+        # for i in range(0, num):
         addr = uni.get_pair_by_index(i)
         try:
             token0 = uni.get_token_0(addr)
