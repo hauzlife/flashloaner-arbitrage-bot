@@ -5,7 +5,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 import json
 
-from dfs import findArb, findBestTradeExactIn
+from dfs import *
 from shared import *
 
 
@@ -88,82 +88,25 @@ def calcEaEb(pairs):
         idx += 1
     print(Ea, Eb)
     optimalAmount = getOptimalAmount(Ea, Eb)
-    print(optimalAmount)
     profit = getAmountOut(optimalAmount, Ea, Eb) - optimalAmount
     print("amount:", optimalAmount, "out:", profit + optimalAmount, "profit:", profit)
-    # amountOut = calcAmountOut(tokenIn, pairs["amountIn"], pairs)
-    # print("amountOut:", amountOut)
+    amountOut = calcAmountOut(optimalAmount, pairs)
+    print("amountOut:", amountOut)
 
 
 # pairs = json.load(open("files/pairs.json"))[:100]
-# pairs = [
-#     getPair(yycrv, usdc, "YYCRV", "USDC"),
-#     getPair(ycrv, yycrv, "YCRV", "YYCRV"),
-#     getPair(ycrv, weth, "YCRV", "WETH"),
-#     getPair(usdc, weth, "USDC", "WETH"),
-# ]
 pairs = [
-    {
-        "address": "0x803BcEAD8cE5B5634204228D8f3419aC046426f1",
-        "token1": {
-            "address": "0x199ddb4BDF09f699d2Cf9CA10212Bd5E3B570aC2",
-            "symbol": "YYCRV",
-            "decimal": 18,
-        },
-        "token0": {
-            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-            "symbol": "USDC",
-            "decimal": 6,
-        },
-        "reserve1": 1256181159389962060575,
-        "reserve0": 845273560,
-    },
-    {
-        "address": "0x4e29a332806AFa07DD2c593DdFbAb3AB2E11664b",
-        "token0": {
-            "address": "0x199ddb4BDF09f699d2Cf9CA10212Bd5E3B570aC2",
-            "symbol": "YYCRV",
-            "decimal": 18,
-        },
-        "token1": {
-            "address": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8",
-            "symbol": "YCRV",
-            "decimal": 18,
-        },
-        "reserve0": 345545396859430951414,
-        "reserve1": 237803864062936128103,
-    },
-    {
-        "address": "0x55dF969467EBdf954FE33470ED9c3C0F8Fab0816",
-        "token1": {
-            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-            "symbol": "WETH",
-            "decimal": 18,
-        },
-        "token0": {
-            "address": "0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8",
-            "symbol": "YCRV",
-            "decimal": 18,
-        },
-        "reserve1": 458989204630578316845,
-        "reserve0": 146347861464099611444006,
-    },
-    {
-        "address": "0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc",
-        "token1": {
-            "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-            "symbol": "USDC",
-            "decimal": 6,
-        },
-        "token0": {
-            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
-            "symbol": "WETH",
-            "decimal": 18,
-        },
-        "reserve1": 177215126419196,
-        "reserve0": 525272035272173884843548,
-    },
+    getPair(yycrv, usdc, "YYCRV", "USDC"),
+    getPair(ycrv, yycrv, "YCRV", "YYCRV"),
+    getPair(ycrv, weth, "YCRV", "WETH"),
+    getPair(usdc, weth, "USDC", "WETH"),
 ]
+# pairs = [
+# {'address': '0x803BcEAD8cE5B5634204228D8f3419aC046426f1', 'token1': {'address': '0x199ddb4BDF09f699d2Cf9CA10212Bd5E3B570aC2', 'symbol': 'YYCRV', 'decimal': 18}, 'token0': {'address': '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 'symbol': 'USDC', 'decimal': 6}, 'reserve1': 1256181159389962060575, 'reserve0': 845273560},
+# {'address': '0x4e29a332806AFa07DD2c593DdFbAb3AB2E11664b', 'token0': {'address': '0x199ddb4BDF09f699d2Cf9CA10212Bd5E3B570aC2', 'symbol': 'YYCRV', 'decimal': 18}, 'token1': {'address': '0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8', 'symbol': 'YCRV', 'decimal': 18}, 'reserve0': 345545396859430951414, 'reserve1': 237803864062936128103},
+# {'address': '0x55dF969467EBdf954FE33470ED9c3C0F8Fab0816', 'token1': {'address': '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 'symbol': 'WETH', 'decimal': 18}, 'token0': {'address': '0xdF5e0e81Dff6FAF3A7e52BA697820c5e32D806A8', 'symbol': 'YCRV', 'decimal': 18}, 'reserve1': 458989204630578316845, 'reserve0': 146347861464099611444006},
+# {'address': '0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc', 'token1': {'address': '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 'symbol': 'USDC', 'decimal': 6}, 'token0': {'address': '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 'symbol': 'WETH', 'decimal': 18}, 'reserve1': 177215126419196, 'reserve0': 525272035272173884843548},
+# ]
 tokenIn = {
     "address": usdt,
     "symbol": "USDT",
@@ -196,7 +139,7 @@ def testBestTradeExactIn():
         origAmount,
         bestTrade,
     )
-    # print(trade)
+    print(trade)
 
 
 def testFindArb():
@@ -204,11 +147,11 @@ def testFindArb():
     Eb = None
     trade = findArb(pairs, tokenIn, tokenOut, maxHops, currentPairs, path, bestTrade)
     print(trade)
-    amountOut = calcAmountOut(tokenIn, trade["amountIn"], trade["route"])
-    print("amountOutByRoute:", amountOut, "profit:", amountOut - trade["amountIn"])
+    amountOut = calcAmountOut(tokenIn, trade["optimalAmount"], trade["route"])
+    print("amountOutByRoute:", amountOut, "profit:", amountOut - trade["optimalAmount"])
 
 
 if __name__ == "__main__":
     testBestTradeExactIn()
-    # testFindArb()
-    calcEaEb(pairs)
+    testFindArb()
+    # calcEaEb(pairs)

@@ -291,18 +291,61 @@ def updateReserves(pairs):
     return pairs
 
 
+def getPair(tokenA, tokenB, symbolA, symbolB):
+    addr = uni.get_pair(tokenA, tokenB)
+    res = uni.get_reserves(tokenA, tokenB)
+    token0 = tokenA
+    symbol0 = symbolA
+    decimal0 = 18
+    token1 = tokenB
+    symbol1 = symbolB
+    decimal1 = 18
+    if token0.lower() > token1.lower():
+        token0 = tokenB
+        symbol0 = symbolB
+        if symbol0 == "USDC":
+            decimal0 = 6
+        token1 = tokenA
+        symbol1 = symbolA
+        if symbol1 == "USDC":
+            decimal1 = 6
+    pair = {
+        "address": addr,
+        "token0": {
+            "address": token0,
+            "symbol": symbol0,
+            "decimal": decimal0,
+        },
+        "token1": {
+            "address": token1,
+            "symbol": symbol1,
+            "decimal": decimal1,
+        },
+        "reserve0": res[0],
+        "reserve1": res[1],
+    }
+    print(pair)
+    return pair
+
+
 def getAllPairs(pair_file, problem_file, token_file):
     num = uni.get_num_pairs()
     print(num)
     problems = json.load(open(problem_file))
-    pairs = json.load(open(pair_file))
+    # pairs = json.load(open(pair_file))
+    pairs = [
+        getPair(yycrv, usdc, "YYCRV", "USDC"),
+        getPair(ycrv, yycrv, "YCRV", "YYCRV"),
+        getPair(ycrv, weth, "YCRV", "WETH"),
+        getPair(usdc, weth, "USDC", "WETH"),
+    ]
     tokens = json.load(open(token_file))
     start = 0
-    print(len(pairs))
-    # Troque o range pelo tamanho mas era o NUM
+    print(num)
     if len(pairs) > 0:
-        start = pairs[-1]["index"] + 1
-    for i in range(len(pairs)):
+        start = 0
+    for i in range(0, 100):
+    #for i in range(0, num):
         addr = uni.get_pair_by_index(i)
         try:
             token0 = uni.get_token_0(addr)
