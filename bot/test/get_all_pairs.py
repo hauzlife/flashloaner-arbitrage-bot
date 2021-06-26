@@ -1,7 +1,7 @@
 from common import *
 
 getAllPairs(
-    "files/ropsten/pairs.json",
-    "files/ropsten/problem_pairs.json",
-    "files/ropsten/tokens.json",
+    "files/pairs.json",
+    "files/problem_pairs.json",
+    "files/tokens.json",
 )
